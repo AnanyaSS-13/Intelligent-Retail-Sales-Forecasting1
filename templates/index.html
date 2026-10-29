@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intelligent Retail Sales Forecasting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Intelligent Retail Sales Forecasting and Decision Support System</h1>
+
+    <form action="/predict" method="POST">
+
+        <input type="number" name="store_id" placeholder="Store ID" required><br><br>
+
+        <input type="number" name="item_id" placeholder="Item ID" required><br><br>
+
+        <input type="number" step="0.01" name="price" placeholder="Price" required><br><br>
+
+        <input type="number" name="promo" placeholder="Promotion (0 or 1)" required><br><br>
+
+        <input type="number" name="weekday" placeholder="Weekday (1-7)" required><br><br>
+
+        <input type="number" name="month" placeholder="Month" required><br><br>
+
+        <input type="number" name="year" placeholder="Year" required><br><br>
+
+        <input type="number" name="day" placeholder="Day" required><br><br>
+
+        <button type="submit">Predict Sales</button>
+
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        <h2>{{ prediction_text }}</h2>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
